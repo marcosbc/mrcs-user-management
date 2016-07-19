@@ -10,7 +10,7 @@ var config;
 var app;
 // Try to load configuration file
 try {
-  config = require('./conf/configuration');
+  config = require('../conf/configuration');
 } catch (err) {
   console.error('Could not load conf/configuration.js!');
   process.exit(1);
