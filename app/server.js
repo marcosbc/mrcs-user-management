@@ -41,6 +41,7 @@ microservice.registerHook('express', (expressInstance) => {
     }, 1000);
   });
 });
+// Populate controllers
 microservice.registerHook('controllers', (registerDir) => {
   registerDir(path.join(__dirname, 'controllers'));
 });

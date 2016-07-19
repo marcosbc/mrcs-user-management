@@ -13,7 +13,7 @@ module.exports = {
     User.find({}, (err, data) => {
       if (err) {
         console.error(err);
-        errorResponse(res);
+        errorResponse(res, err);
       } else {
         if (data.length === 0) {
           data = {};
