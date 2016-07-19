@@ -24,7 +24,9 @@ microservice.registerHook('express', (expressInstance) => {
     customValidators: userUtils.validators.customValidators,
     customSanitizers: userUtils.validators.customSanitizers
   }));
-  waitForMongoose(config.mongoDbUri, (err) => {
+  waitForMongoose(config.mongoDbUri, {
+    timeout: config.mongoDbTimeout
+  }, (err) => {
     if (err) {
       console.error('Timeout exceeded connecting to MongoDB');
       process.exit(1);
