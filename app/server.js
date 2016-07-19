@@ -3,7 +3,7 @@
 var path = require('path');
 var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
-var waitForMongoose = require('wait-for-mongoose');
+var waitForMongo = require('wait-for-mongo');
 var microservice = require('microservice-skeleton');
 var userUtils = require('./lib')();
 var config;
@@ -24,7 +24,7 @@ microservice.registerHook('express', (expressInstance) => {
     customValidators: userUtils.validators.customValidators,
     customSanitizers: userUtils.validators.customSanitizers
   }));
-  waitForMongoose(config.mongoDbUri, {
+  waitForMongo(config.mongoDbUri, {
     timeout: config.mongoDbTimeout
   }, (err) => {
     if (err) {
